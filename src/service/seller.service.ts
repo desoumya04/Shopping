@@ -24,8 +24,7 @@ class SellerService{
     if(existingSeller){
       throw new apiError(400, 'Seller with this email already exists');
     }
-    // create a token
-    const token = await JWTProviderInstance.createToken({ email: sellerData.email })
+    
     // create a new seller and store it in data base
     const newSeller = await prisma.seller.create({
       data: {
@@ -37,6 +36,8 @@ class SellerService{
         gstIn: sellerData.gstIn,
       },
     })
+    // create a token
+    const token = await JWTProviderInstance.createToken({ email: sellerData.email,id: newSeller.id });
 
     return { newSeller, token };
 
@@ -50,25 +51,41 @@ class SellerService{
 
 
 // update seller
-  async updateSeller(email:string, updateData: any){
-    if(!email){
-      throw new apiError(400, 'Email is required to update seller');
+  async updateSellerProfile( existingSeller: any, updateData: any){
+    const { name, mobile } = updateData
+    const hasMissingField = [name, mobile].some(v => !v)
+    // check for missing fields
+    if(hasMissingField){
+      throw new apiError(400, 'Missing required fields: name, mobile, password');
     }
-    let seller = await prisma.seller.findUnique({
-      where: { email }
-    })
-    if(!seller){
-      throw new apiError(404, 'Seller not found');
-    }
-    seller = await prisma.seller.update({
-      where: { email },
+    const updatedSeller = await prisma.seller.update({
+      where: { id: existingSeller.id },
       data:{
-
+        name,
+        mobile,
       }
     })
+    return updatedSeller;
+  }
+// update password 
+  async updateSellerPassword(updatePassword:any){
+    const{password,newPassword} = updatePassword
+    const hasMissFiled = [password,newPassword].some(v=> !v)
+
+    if(hasMissFiled){
+      throw new apiError(400, 'Missing required fields: password, newPassword');
+     }
+    }
+    
+  
+// delete seller
+  async deleteSeller(Id: string){
+    const deletedSeller = await prisma.seller.delete({
+      where: { id: Id }
+    })
+    return deletedSeller;
   }
 
-// delete seller
 
 // added seller bank details
 
@@ -147,6 +164,7 @@ class SellerService{
     })
     return businessDetails;
   }
+
 
 }
 export const sellerService = new SellerService();
