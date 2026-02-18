@@ -20,6 +20,11 @@ model Seller {
   mobile    String? @unique
   email     String   @unique
   password  String
+
+  otp             String?
+  otpExpiresAt    DateTime?   // ⭐ expiry time
+  otpVerified     Boolean     @default(false)
+
   businessDetails Business[]
   bankDetails     Bank?
   role Role @default(CUSTOMER)
@@ -54,7 +59,6 @@ model Bank {
   ifcCode    String?
   seller      Seller   @relation(fields: [sellerId], references: [id])
 }
-
 
 
 

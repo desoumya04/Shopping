@@ -1,8 +1,8 @@
+
 import { prisma } from '../config/db.js';
 import { apiError } from '../utils/apiError.js';
 import bcrypt from 'bcrypt';
 import { JWTProviderInstance } from '../utils/jwtProvider.js';
-
 
 
 class SellerService{
@@ -36,10 +36,8 @@ class SellerService{
         gstIn: sellerData.gstIn,
       },
     })
-    // create a token
-    const token = await JWTProviderInstance.createToken({ email: sellerData.email,id: newSeller.id });
 
-    return { newSeller, token };
+    return { newSeller };
 
   }
 
@@ -165,6 +163,6 @@ class SellerService{
     return businessDetails;
   }
 
-
+ 
 }
 export const sellerService = new SellerService();

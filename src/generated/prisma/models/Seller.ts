@@ -30,6 +30,9 @@ export type SellerMinAggregateOutputType = {
   mobile: string | null
   email: string | null
   password: string | null
+  otp: string | null
+  otpExpiresAt: Date | null
+  otpVerified: boolean | null
   role: $Enums.Role | null
   gstIn: string | null
   accountStatus: $Enums.Account | null
@@ -43,6 +46,9 @@ export type SellerMaxAggregateOutputType = {
   mobile: string | null
   email: string | null
   password: string | null
+  otp: string | null
+  otpExpiresAt: Date | null
+  otpVerified: boolean | null
   role: $Enums.Role | null
   gstIn: string | null
   accountStatus: $Enums.Account | null
@@ -56,6 +62,9 @@ export type SellerCountAggregateOutputType = {
   mobile: number
   email: number
   password: number
+  otp: number
+  otpExpiresAt: number
+  otpVerified: number
   role: number
   gstIn: number
   accountStatus: number
@@ -71,6 +80,9 @@ export type SellerMinAggregateInputType = {
   mobile?: true
   email?: true
   password?: true
+  otp?: true
+  otpExpiresAt?: true
+  otpVerified?: true
   role?: true
   gstIn?: true
   accountStatus?: true
@@ -84,6 +96,9 @@ export type SellerMaxAggregateInputType = {
   mobile?: true
   email?: true
   password?: true
+  otp?: true
+  otpExpiresAt?: true
+  otpVerified?: true
   role?: true
   gstIn?: true
   accountStatus?: true
@@ -97,6 +112,9 @@ export type SellerCountAggregateInputType = {
   mobile?: true
   email?: true
   password?: true
+  otp?: true
+  otpExpiresAt?: true
+  otpVerified?: true
   role?: true
   gstIn?: true
   accountStatus?: true
@@ -183,6 +201,9 @@ export type SellerGroupByOutputType = {
   mobile: string | null
   email: string
   password: string
+  otp: string | null
+  otpExpiresAt: Date | null
+  otpVerified: boolean
   role: $Enums.Role
   gstIn: string | null
   accountStatus: $Enums.Account
@@ -217,6 +238,9 @@ export type SellerWhereInput = {
   mobile?: Prisma.StringNullableFilter<"Seller"> | string | null
   email?: Prisma.StringFilter<"Seller"> | string
   password?: Prisma.StringFilter<"Seller"> | string
+  otp?: Prisma.StringNullableFilter<"Seller"> | string | null
+  otpExpiresAt?: Prisma.DateTimeNullableFilter<"Seller"> | Date | string | null
+  otpVerified?: Prisma.BoolFilter<"Seller"> | boolean
   role?: Prisma.EnumRoleFilter<"Seller"> | $Enums.Role
   gstIn?: Prisma.StringNullableFilter<"Seller"> | string | null
   accountStatus?: Prisma.EnumAccountFilter<"Seller"> | $Enums.Account
@@ -232,6 +256,9 @@ export type SellerOrderByWithRelationInput = {
   mobile?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  otp?: Prisma.SortOrderInput | Prisma.SortOrder
+  otpExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  otpVerified?: Prisma.SortOrder
   role?: Prisma.SortOrder
   gstIn?: Prisma.SortOrderInput | Prisma.SortOrder
   accountStatus?: Prisma.SortOrder
@@ -250,6 +277,9 @@ export type SellerWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SellerWhereInput | Prisma.SellerWhereInput[]
   name?: Prisma.StringFilter<"Seller"> | string
   password?: Prisma.StringFilter<"Seller"> | string
+  otp?: Prisma.StringNullableFilter<"Seller"> | string | null
+  otpExpiresAt?: Prisma.DateTimeNullableFilter<"Seller"> | Date | string | null
+  otpVerified?: Prisma.BoolFilter<"Seller"> | boolean
   role?: Prisma.EnumRoleFilter<"Seller"> | $Enums.Role
   gstIn?: Prisma.StringNullableFilter<"Seller"> | string | null
   accountStatus?: Prisma.EnumAccountFilter<"Seller"> | $Enums.Account
@@ -265,6 +295,9 @@ export type SellerOrderByWithAggregationInput = {
   mobile?: Prisma.SortOrderInput | Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  otp?: Prisma.SortOrderInput | Prisma.SortOrder
+  otpExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  otpVerified?: Prisma.SortOrder
   role?: Prisma.SortOrder
   gstIn?: Prisma.SortOrderInput | Prisma.SortOrder
   accountStatus?: Prisma.SortOrder
@@ -284,6 +317,9 @@ export type SellerScalarWhereWithAggregatesInput = {
   mobile?: Prisma.StringNullableWithAggregatesFilter<"Seller"> | string | null
   email?: Prisma.StringWithAggregatesFilter<"Seller"> | string
   password?: Prisma.StringWithAggregatesFilter<"Seller"> | string
+  otp?: Prisma.StringNullableWithAggregatesFilter<"Seller"> | string | null
+  otpExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Seller"> | Date | string | null
+  otpVerified?: Prisma.BoolWithAggregatesFilter<"Seller"> | boolean
   role?: Prisma.EnumRoleWithAggregatesFilter<"Seller"> | $Enums.Role
   gstIn?: Prisma.StringNullableWithAggregatesFilter<"Seller"> | string | null
   accountStatus?: Prisma.EnumAccountWithAggregatesFilter<"Seller"> | $Enums.Account
@@ -297,6 +333,9 @@ export type SellerCreateInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -312,6 +351,9 @@ export type SellerUncheckedCreateInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -327,6 +369,9 @@ export type SellerUpdateInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -342,6 +387,9 @@ export type SellerUncheckedUpdateInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -357,6 +405,9 @@ export type SellerCreateManyInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -370,6 +421,9 @@ export type SellerUpdateManyMutationInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -383,6 +437,9 @@ export type SellerUncheckedUpdateManyInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -396,6 +453,9 @@ export type SellerCountOrderByAggregateInput = {
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  otp?: Prisma.SortOrder
+  otpExpiresAt?: Prisma.SortOrder
+  otpVerified?: Prisma.SortOrder
   role?: Prisma.SortOrder
   gstIn?: Prisma.SortOrder
   accountStatus?: Prisma.SortOrder
@@ -409,6 +469,9 @@ export type SellerMaxOrderByAggregateInput = {
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  otp?: Prisma.SortOrder
+  otpExpiresAt?: Prisma.SortOrder
+  otpVerified?: Prisma.SortOrder
   role?: Prisma.SortOrder
   gstIn?: Prisma.SortOrder
   accountStatus?: Prisma.SortOrder
@@ -422,6 +485,9 @@ export type SellerMinOrderByAggregateInput = {
   mobile?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
+  otp?: Prisma.SortOrder
+  otpExpiresAt?: Prisma.SortOrder
+  otpVerified?: Prisma.SortOrder
   role?: Prisma.SortOrder
   gstIn?: Prisma.SortOrder
   accountStatus?: Prisma.SortOrder
@@ -440,6 +506,14 @@ export type StringFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 export type EnumRoleFieldUpdateOperationsInput = {
@@ -488,6 +562,9 @@ export type SellerCreateWithoutBusinessDetailsInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -502,6 +579,9 @@ export type SellerUncheckedCreateWithoutBusinessDetailsInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -532,6 +612,9 @@ export type SellerUpdateWithoutBusinessDetailsInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -546,6 +629,9 @@ export type SellerUncheckedUpdateWithoutBusinessDetailsInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -560,6 +646,9 @@ export type SellerCreateWithoutBankDetailsInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -574,6 +663,9 @@ export type SellerUncheckedCreateWithoutBankDetailsInput = {
   mobile?: string | null
   email: string
   password: string
+  otp?: string | null
+  otpExpiresAt?: Date | string | null
+  otpVerified?: boolean
   role?: $Enums.Role
   gstIn?: string | null
   accountStatus?: $Enums.Account
@@ -604,6 +696,9 @@ export type SellerUpdateWithoutBankDetailsInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -618,6 +713,9 @@ export type SellerUncheckedUpdateWithoutBankDetailsInput = {
   mobile?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
+  otp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  otpExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  otpVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   gstIn?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accountStatus?: Prisma.EnumAccountFieldUpdateOperationsInput | $Enums.Account
@@ -663,6 +761,9 @@ export type SellerSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   mobile?: boolean
   email?: boolean
   password?: boolean
+  otp?: boolean
+  otpExpiresAt?: boolean
+  otpVerified?: boolean
   role?: boolean
   gstIn?: boolean
   accountStatus?: boolean
@@ -679,6 +780,9 @@ export type SellerSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   mobile?: boolean
   email?: boolean
   password?: boolean
+  otp?: boolean
+  otpExpiresAt?: boolean
+  otpVerified?: boolean
   role?: boolean
   gstIn?: boolean
   accountStatus?: boolean
@@ -692,6 +796,9 @@ export type SellerSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   mobile?: boolean
   email?: boolean
   password?: boolean
+  otp?: boolean
+  otpExpiresAt?: boolean
+  otpVerified?: boolean
   role?: boolean
   gstIn?: boolean
   accountStatus?: boolean
@@ -705,6 +812,9 @@ export type SellerSelectScalar = {
   mobile?: boolean
   email?: boolean
   password?: boolean
+  otp?: boolean
+  otpExpiresAt?: boolean
+  otpVerified?: boolean
   role?: boolean
   gstIn?: boolean
   accountStatus?: boolean
@@ -712,7 +822,7 @@ export type SellerSelectScalar = {
   updatedAt?: boolean
 }
 
-export type SellerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "mobile" | "email" | "password" | "role" | "gstIn" | "accountStatus" | "createdAt" | "updatedAt", ExtArgs["result"]["seller"]>
+export type SellerOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "mobile" | "email" | "password" | "otp" | "otpExpiresAt" | "otpVerified" | "role" | "gstIn" | "accountStatus" | "createdAt" | "updatedAt", ExtArgs["result"]["seller"]>
 export type SellerInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   businessDetails?: boolean | Prisma.Seller$businessDetailsArgs<ExtArgs>
   bankDetails?: boolean | Prisma.Seller$bankDetailsArgs<ExtArgs>
@@ -733,6 +843,9 @@ export type $SellerPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     mobile: string | null
     email: string
     password: string
+    otp: string | null
+    otpExpiresAt: Date | null
+    otpVerified: boolean
     role: $Enums.Role
     gstIn: string | null
     accountStatus: $Enums.Account
@@ -1168,6 +1281,9 @@ export interface SellerFieldRefs {
   readonly mobile: Prisma.FieldRef<"Seller", 'String'>
   readonly email: Prisma.FieldRef<"Seller", 'String'>
   readonly password: Prisma.FieldRef<"Seller", 'String'>
+  readonly otp: Prisma.FieldRef<"Seller", 'String'>
+  readonly otpExpiresAt: Prisma.FieldRef<"Seller", 'DateTime'>
+  readonly otpVerified: Prisma.FieldRef<"Seller", 'Boolean'>
   readonly role: Prisma.FieldRef<"Seller", 'Role'>
   readonly gstIn: Prisma.FieldRef<"Seller", 'String'>
   readonly accountStatus: Prisma.FieldRef<"Seller", 'Account'>
